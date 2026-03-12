@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Space Academy</title>
+    <!-- Google Fonts: Orbitron for futuristic headings, Inter for clean UI text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- MathJax for rendering math equations beautifully -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div class="space-background"></div>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation & Status -->
+        <aside class="sidebar glass-panel">
+            <div class="brand">
+                <h1>VECTOR<br><span class="highlight">ACADEMY</span></h1>
+            </div>
+
+            <nav class="main-nav">
+                <button class="nav-btn active" data-view="home">
+                    <span class="level-num">🏠</span>
+                    <div class="level-info">
+                        <span class="level-title">Utama</span>
+                        <span class="level-desc">Pusat Kawalan Misi</span>
+                    </div>
+                </button>
+                <button class="nav-btn" data-view="training">
+                    <span class="level-num">📚</span>
+                    <div class="level-info">
+                        <span class="level-title">Latihan</span>
+                        <span class="level-desc">Nota & Simulasi</span>
+                    </div>
+                </button>
+                <button class="nav-btn" data-view="arena">
+                    <span class="level-num">🚀</span>
+                    <div class="level-info">
+                        <span class="level-title">Arena</span>
+                        <span class="level-desc">Zon Ujian Vektor</span>
+                    </div>
+                </button>
+                <button class="nav-btn" data-view="leaderboard">
+                    <span class="level-num">🏆</span>
+                    <div class="level-info">
+                        <span class="level-title">Pendahulu</span>
+                        <span class="level-desc">Rekod Pencapaian</span>
+                    </div>
+                </button>
+            </nav>
+
+            <div class="mission-briefing hidden" id="arena-briefing">
+                <h3>MISI HARI INI</h3>
+                <p id="mission-text"></p>
+            </div>
+        </aside>
+
+        <!-- Main Display Area -->
+        <main class="main-display">
+            <!-- View: Home -->
+            <section id="view-home" class="view-section active glass-panel scrollable-view">
+                <div class="home-content">
+                    <div class="story-header">
+                        <span class="year-badge">TAHUN 2050</span>
+                        <h1 class="story-title">Sistem Graviti Stesen Angkasa <span class="highlight">ROSAK.</span></h1>
+                    </div>
+
+                    <div class="story-card">
+                        <p class="story-desc">
+                            Kecemasan! Ruang angkasa telah melumpuhkan sistem navigasi lazim kita.
+                            Anda telah dilantik sebagai <strong>Komander Akademik</strong> baharu.
+                            Harapan tunggal kita untuk menyelamatkan angkasawan terkandas dan mengharungi ribut suria
+                            adalah menggunakan <strong>Hukum Vektor</strong> untuk mengemudi kapal secara manual.
+                        </p>
+                    </div>
+
+                    <div class="commander-profile">
+                        <div class="avatar-container">
+                            <div class="avatar">👨‍🚀</div>
+                        </div>
+                        <div class="profile-details">
+                            <h3>Komander Angkasa</h3>
+                            <p class="status-badge">Status: Dalam Latihan</p>
+                            <p class="score-display">Markah Terkumpul: <span id="total-score" class="highlight">0</span>
+                                XP</p>
+                        </div>
+                    </div>
+
+                    <div class="home-actions">
+                        <button class="btn-launch" id="btn-go-training">Mula Latihan Asas</button>
+                        <button class="btn-primary" id="btn-go-arena">Terus ke Arena Perang</button>
+                    </div>
+
+                    <div class="tests-links">
+                        <h3>Ujian Penilaian</h3>
+                        <p>Sila jawap ujian sebelum dan selepas menggunakan modul ini.</p>
+                        <div class="pra-pasca-links">
+                            <a href="#" target="_blank" class="link-btn pra-btn">📝 Pra-Ujian</a>
+                            <a href="#" target="_blank" class="link-btn pasca-btn">📝 Pasca-Ujian</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- View: Training -->
+            <section id="view-training" class="view-section hidden glass-panel scrollable-view">
+                <div class="training-content">
+                    <h2 class="view-title">Modul Latihan Vektor</h2>
+
+                    <div class="notes-grid">
+                        <div class="note-card scalar-card">
+                            <h3>⚡ Skalar</h3>
+                            <p>Kuantiti yang <strong>hanya mempunyai magnitud</strong> (saiz/nilai).</p>
+                            <span class="example">Cth: Jisim (50 kg), Masa (10 s), Laju (80 km/j)</span>
+                        </div>
+                        <div class="note-card vector-card">
+                            <h3>🚀 Vektor</h3>
+                            <p>Kuantiti yang mempunyai kedua-dua <strong>magnitud dan arah</strong>.</p>
+                            <span class="example">Cth: Daya (10 N ke atas), Halaju (80 km/j ke Utara)</span>
+                        </div>
+                    </div>
+
+                    <div class="training-sim glass-panel">
+                        <h3>Simulasi Vektor Asas</h3>
+                        <p>Klik dan tarik kawasan simulasi untuk mencipta vektor tujahan. Kapal akan bergerak mengikut
+                            arah dan jarak anak panah tersebut.</p>
+                        <div class="training-canvas-container">
+                            <canvas id="trainingCanvas"></canvas>
+                        </div>
+                        <div class="sim-info">
+                            Tujahan Vektor: <span id="train-vec-val" class="highlight">0i + 0j</span> | Magnitud
+                            (Jarak): <span id="train-mag-val" class="highlight">0</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- View: Arena -->
+            <section id="view-arena" class="view-section hidden flex-col">
+                <!-- Level Navigation for Arena -->
+                <nav class="arena-nav glass-panel">
+                    <button class="lvl-btn active" data-level="1">Lvl 1: Jarak Asas</button>
+                    <button class="lvl-btn" data-level="2">Lvl 2: Elak Asteroid</button>
+                    <button class="lvl-btn" data-level="3">Lvl 3: Ribut Suria</button>
+                </nav>
+
+                <div class="arena-workspace">
+                    <!-- Educational overlay explaining concepts (for arena) -->
+                    <div class="edu-overlay glass-panel" id="edu-panel">
+                        <h2 id="edu-title">Sedia untuk Bermula?</h2>
+                        <div id="edu-content">
+                            <p>Aplikasikan pemahaman anda berkaitan vektor untuk mengawal kapal angkasa dan selesaikan
+                                misi!</p>
+                        </div>
+                        <button class="btn-primary" id="start-btn">ENGAGE</button>
+                    </div>
+
+                    <!-- The simulation canvas -->
+                    <div class="canvas-container glass-panel">
+                        <canvas id="spaceCanvas"></canvas>
+
+                        <!-- HUD / Status Overlay -->
+                        <div class="hud">
+                            <div class="hud-item">
+                                <span class="hud-label">STATUS</span>
+                                <span class="hud-value status-online">ONLINE</span>
+                            </div>
+                            <div class="hud-item">
+                                <span class="hud-label">COORDS</span>
+                                <span class="hud-value" id="hud-coords">X: 0 Y: 0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls Panel (Changes based on level) -->
+                    <div class="controls-panel glass-panel" id="controls-container">
+                        <!-- Level 1 Controls -->
+                        <div class="control-group level-control active" id="control-l1">
+                            <h3>Penyelamatan Asas</h3>
+                            <p>Formula Jarak: \( |\mathbf{v}| = \sqrt{x^2 + y^2} \)</p>
+                            <div class="cartesian-inputs">
+                                <div class="input-field" style="width: auto;">
+                                    <label for="distance-input">Masukkan Jarak (Unit)</label>
+                                    <input type="number" id="distance-input" placeholder="0" step="1"
+                                        style="width: 150px;">
+                                </div>
+                            </div>
+                            <button class="btn-launch" id="launch-l1">LANCAR MISI</button>
+                        </div>
+
+                        <!-- Level 2 Controls -->
+                        <div class="control-group level-control" id="control-l2">
+                            <h3>Pengelakan Asteroid</h3>
+                            <p>Vektor sedia ada \( \mathbf{u} = 2\mathbf{i} + 3\mathbf{j} \). Masukkan vektor tujahan
+                                baru \( \mathbf{v} \).</p>
+                            <div class="cartesian-inputs">
+                                <div class="input-field">
+                                    <label for="l2-i-input">Tujahan X (\( \mathbf{i} \))</label>
+                                    <input type="number" id="l2-i-input" value="0" step="1">
+                                </div>
+                                <div class="input-field">
+                                    <label for="l2-j-input">Tujahan Y (\( \mathbf{j} \))</label>
+                                    <input type="number" id="l2-j-input" value="0" step="1">
+                                </div>
+                            </div>
+                            <button class="btn-launch" id="launch-l2">KIRA ARAH BARU</button>
+                        </div>
+
+                        <!-- Level 3 Controls -->
+                        <div class="control-group level-control" id="control-l3">
+                            <h3>Ribut Suria</h3>
+                            <p class="warning-text">AMARAN: Daya luaran mengganggu arah!</p>
+                            <div class="cartesian-inputs">
+                                <div class="input-field">
+                                    <label for="l3-i-input">Komp. X (\( \mathbf{i} \))</label>
+                                    <input type="number" id="l3-i-input" value="0" step="1">
+                                </div>
+                                <div class="input-field">
+                                    <label for="l3-j-input">Komp. Y (\( \mathbf{j} \))</label>
+                                    <input type="number" id="l3-j-input" value="0" step="1">
+                                </div>
+                            </div>
+                            <button class="btn-launch" id="launch-l3">JANA VEKTOR</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- View: Leaderboard -->
+            <section id="view-leaderboard" class="view-section hidden glass-panel scrollable-view">
+                <div class="leaderboard-content">
+                    <h2 class="view-title">Papan Pendahulu & Pencapaian</h2>
+                    <p class="subtitle">Setelah melengkapkan arena, kumpulkan lencana dan hantar markah anda.</p>
+
+                    <div class="score-summary-card">
+                        <h3>Markah Prestasi Anda</h3>
+                        <div class="big-score"><span id="final-score-lb">0</span> <span class="xp-label">XP</span></div>
+                        <p class="score-desc">Markah dinilai berdasarkan ketepatan vektor anda melengkapkan misi Arena.
+                        </p>
+                    </div>
+
+                    <div class="badges-container">
+                        <div class="badge-item locked" id="badge-lvl1">
+                            <div class="badge-icon">🏅</div>
+                            <h4>Novis Penyelamat</h4>
+                            <p>Selesaikan Level 1</p>
+                        </div>
+                        <div class="badge-item locked" id="badge-lvl2">
+                            <div class="badge-icon">🚀</div>
+                            <h4>Pemandu Cekap</h4>
+                            <p>Selesaikan Level 2</p>
+                        </div>
+                        <div class="badge-item locked" id="badge-lvl3">
+                            <div class="badge-icon">👑</div>
+                            <h4>Pakar Vektor</h4>
+                            <p>Selesaikan Level 3</p>
+                        </div>
+                    </div>
+
+                    <div class="form-container glass-panel">
+                        <h3>Tuntut Sijil Digital (E-Sijil)</h3>
+                        <p>Dapatkan Lencana "Antigravity Pilot" ke e-mel anda melalui Google Forms & Autocrat.</p>
+                        <button class="btn-launch" id="claim-cert-btn">Borang Tuntutan Sijil</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Success/Failure Modals -->
+    <div id="result-modal" class="modal-overlay hidden">
+        <div class="modal glass-panel">
+            <h2 id="modal-title" class="success-text">MISSION SUCCESS</h2>
+            <p id="modal-desc">Target reached successfully. Great job!</p>
+            <p id="modal-score" class="score-text"></p>
+            <button class="btn-primary" id="modal-btn">SETERUSNYA</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

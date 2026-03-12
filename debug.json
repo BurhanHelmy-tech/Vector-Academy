@@ -1,0 +1,1 @@
+{"162": "    hudCoords.textContent = `X: ${x} Y: ${y}`;\n", "404": "        drawArrow(sx, sy, sx + i * scale, sy, '#4facfe', 2, `${iInput.value}i`);\n", "406": "        drawArrow(sx + i * scale, sy, sx + i * scale, sy - j * scale, '#00f2fe', 2, `${jInput.value}j`);\n", "499": "        showResult(false, `Missed target by ${err} units.`);\n"}
